@@ -8,23 +8,23 @@
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",
-      "name" : "start(Data)",
+      "name" : "start(Person,String)",
       "config" : {
         "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "data", "type" : "shop.Data", "desc" : "" }
+            { "name" : "person", "type" : "shop.Person", "desc" : "" }
           ],
           "map" : {
-            "out.data" : "param.data"
+            "out.person" : "param.person"
           }
         },
         "result" : {
           "params" : [
-            { "name" : "data", "type" : "shop.Data", "desc" : "" }
+            { "name" : "person", "type" : "shop.Person", "desc" : "" }
           ],
           "map" : {
-            "result.data" : "in.data"
+            "result.person" : "in.person"
           }
         },
         "guid" : "191BD6855CF67319"
