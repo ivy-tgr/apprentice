@@ -36,8 +36,8 @@
                   </h:panelGroup>
                   <h:panelGroup id="basket">
                     <p:commandButton
-                      actionListener="#{logic.toBasket(product.id)}" update="form"
-                      icon="si si-shopping-cart-check" />
+                      actionListener="#{logic.toBasket(product.id,data.person)}" update="form"
+                      icon="si si-shopping-cart-check" process="@this"  />
                   </h:panelGroup>
                 </p:panelGrid>
               </p:column>
@@ -50,7 +50,7 @@
           </p:tab>
           
           <p:tab title="Shopping Cart">
-            <p:dataTable var="item" value="#{data.items}">
+            <p:dataTable var="item" value="#{data.person.items}">
               <p:column headerText="Product">
                 <h:outputText value="#{item.product.name}" />
               </p:column>

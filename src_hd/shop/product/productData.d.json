@@ -8,10 +8,6 @@
     "type" : "List<shop.Product>",
     "modifiers" : [ "PERSISTENT" ]
   }, {
-    "name" : "items",
-    "type" : "List<shop.CartItem>",
-    "modifiers" : [ "PERSISTENT" ]
-  }, {
     "name" : "basketTotal",
     "type" : "Double",
     "modifiers" : [ "PERSISTENT" ]

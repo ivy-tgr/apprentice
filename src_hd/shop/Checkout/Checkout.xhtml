@@ -16,8 +16,8 @@
     <p:menuitem value="Confirmation" />
   </p:steps>
 
-  <p:panel rendered="#{checkoutBean.activeStep == 0}">
-    <p:panelGrid columns="1">
+  <h:panelGroup rendered="#{checkoutBean.activeStep == 0}">
+    <p:panelGrid columns="2">
       <p:outputLabel for="Firstname" value="Firstname" />
       <p:inputText id="Firstname" value="#{data.person.firstname}"
         required="true"></p:inputText>
@@ -27,12 +27,10 @@
         required="true"></p:inputText>
 
       <p:outputLabel for="Email" value="Email" />
-      <p:inputText id="Email" value="#{data.person.email}"
-        required="true"></p:inputText>
+      <p:inputText id="Email" value="#{data.person.email}" required="true"></p:inputText>
 
       <p:outputLabel for="Phone" value="Phone" />
-      <p:inputText id="Phone" value="#{data.person.phone}"
-        required="true"></p:inputText>
+      <p:inputText id="Phone" value="#{data.person.phone}" required="true"></p:inputText>
 
       <p:outputLabel for="Street" value="Street" />
       <p:inputText id="Street" value="#{data.person.street}"
@@ -46,31 +44,26 @@
       <p:inputText id="Zip" value="#{data.person.zip}" required="true"></p:inputText>
 
       <p:outputLabel for="Place" value="Place" />
-      <p:inputText id="Place" value="#{data.person.place}"
-        required="true"></p:inputText>
+      <p:inputText id="Place" value="#{data.person.place}" required="true"></p:inputText>
 
       <p:outputLabel for="City" value="City" />
-      <p:inputText id="City" value="#{data.person.city}"
-        required="true"></p:inputText>
+      <p:inputText id="City" value="#{data.person.city}" required="true"></p:inputText>
     </p:panelGrid>
 
-    <h:outputText value="Step 1: Enter Address and Delivery Information" />
     <p:commandButton value="Next"
       actionListener="#{checkoutBean.onStepChange(1)}" update="@form" />
-  </p:panel>
+  </h:panelGroup>
 
   <p:panel rendered="#{checkoutBean.activeStep == 1}">
-    <h:outputText value="Step 2: Payment Information" />
     <p:commandButton value="Previous"
       actionListener="#{checkoutBean.onStepChange(0)}" update="@form" />
     <p:commandButton value="Next"
       actionListener="#{checkoutBean.onStepChange(2)}" update="@form" />
   </p:panel>
 
-  <p:panel rendered="#{checkoutBean.activeStep == 2}">
-    <h:outputText value="Step 3: Confirmation" />
+  <p:panelGrid columns="2" rendered="#{checkoutBean.activeStep == 2}">
 
-    <p:panel header="Confirmation">
+    <p:panel header="Adress Informations">
       <h:panelGrid id="confirmation" columns="3"
         columnClasses="grid,grid,grid">
         <h:panelGrid columns="2" columnClasses="label, value">
@@ -83,8 +76,7 @@
             styleClass="outputLabel" />
 
           <h:outputText value="Age: " />
-          <h:outputText value="#{data.person.age}"
-            styleClass="outputLabel" />
+          <h:outputText value="#{data.person.age}" styleClass="outputLabel" />
         </h:panelGrid>
 
         <h:panelGrid columns="2" columnClasses="label, value">
@@ -93,33 +85,47 @@
             styleClass="outputLabel" />
 
           <h:outputText value="Zip Code: " />
-          <h:outputText value="#{data.person.zip}"
-            styleClass="outputLabel" />
+          <h:outputText value="#{data.person.zip}" styleClass="outputLabel" />
 
           <h:outputText value="City: " />
-          <h:outputText value="#{data.person.city}"
-            styleClass="outputLabel" />
+          <h:outputText value="#{data.person.city}" styleClass="outputLabel" />
         </h:panelGrid>
 
         <h:panelGrid columns="2" columnClasses="label, value">
           <h:outputText value="Email: " />
-          <h:outputText value="#{data.person.email}"
-            styleClass="outputLabel" />
+          <h:outputText value="#{data.person.email}" styleClass="outputLabel" />
 
           <h:outputText value="Phone " />
-          <h:outputText value="#{data.person.phone}"
-            styleClass="outputLabel" />
+          <h:outputText value="#{data.person.phone}" styleClass="outputLabel" />
 
           <h:outputText />
           <h:outputText />
         </h:panelGrid>
       </h:panelGrid>
     </p:panel>
+    <p:dataTable var="item" value="#{data.person.items}">
+      <p:column headerText="Product">
+        <h:outputText value="#{item.product.name}" />
+      </p:column>
+
+      <p:column headerText="Count">
+        <h:outputText value="#{item.count}" />
+      </p:column>
+
+      <p:column headerText="UnitPrice">
+        <h:outputText value="#{item.product.price}" />
+      </p:column>
+
+      <p:column headerText="Price">
+        <h:outputText value="#{item.totalPrice}" />
+      </p:column>
+    </p:dataTable>
 
     <p:commandButton value="Previous"
       actionListener="#{checkoutBean.onStepChange(1)}" update="@form" />
-    <p:commandButton value="Pay" actionListener="#{logic.close}" update="form" />
-  </p:panel>
+    <p:commandButton value="Pay" actionListener="#{logic.close}"
+      update="form" />
+  </p:panelGrid>
 
 </cc:implementation>
 

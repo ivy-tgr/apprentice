@@ -11,34 +11,7 @@
     <ui:define name="title">login</ui:define>
     <ui:define name="content">
 
-     <h3> Thanks for buying </h3>
-
-	<p:dataTable var="product" value="#{data.data.items}">
-              <p:column>
-                <p:panelGrid columns="4">
-                  <h:panelGroup>
-                    <img width="100px" src="#{product.picture}" />
-                    <p:rating readonly="true" value="#{product.rating}" />
-                  </h:panelGroup>
-                  <h:panelGroup>
-                    <h3 class="product-name">#{product.name}</h3>
-                    <div class="product-description">#{product.description}</div>
-                  </h:panelGroup>
-                  <h:panelGroup>
-                    <h:outputText value="#{product.price}"
-                      styleClass="product-price">
-                      <f:convertNumber currencySymbol="$" type="currency" />
-                    </h:outputText>
-                  </h:panelGroup>
-                  <h:panelGroup>
-                    <p:commandButton
-                      actionListener="#{logic.toBasket(product.id)}" update="form"
-                      icon="si si-shopping-cart-check" />
-                  </h:panelGroup>
-                </p:panelGrid>
-              </p:column>
-
-            </p:dataTable>
+     <h3> Thanks for buying in our Shop</h3>
 
     </ui:define>
   </ui:composition>

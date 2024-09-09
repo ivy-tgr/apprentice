@@ -83,18 +83,27 @@
     }, {
       "id" : "f8",
       "type" : "HtmlDialogMethodStart",
-      "name" : "toBasket(Integer)",
+      "name" : "toBasket(Integer,Person,String)",
       "config" : {
         "signature" : "toBasket",
         "input" : {
           "params" : [
-            { "name" : "productId", "type" : "Integer", "desc" : "" }
+            { "name" : "productId", "type" : "Integer", "desc" : "" },
+            { "name" : "person", "type" : "shop.Person", "desc" : "" }
           ],
           "map" : { },
           "code" : [
             "import shop.Basket;",
-            "out.items = Basket.add(out.products, out.items, param.productId);"
+            "out.person.items = Basket.add(out.products, out.person.items, param.productId);"
           ]
+        },
+        "result" : {
+          "params" : [
+            { "name" : "items", "type" : "shop.Person", "desc" : "" }
+          ],
+          "map" : {
+            "result.items" : "in.person"
+          }
         },
         "guid" : "191D5D484FF41095"
       },
@@ -113,7 +122,7 @@
           "code" : [
             "import shop.Basket;",
             "",
-            "out.basketTotal = Basket.getTotalPrice(in.items);"
+            "out.basketTotal = Basket.getTotalPrice(in.person.items);"
           ]
         }
       },
