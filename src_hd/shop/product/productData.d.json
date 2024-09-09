@@ -4,12 +4,8 @@
   "namespace" : "shop.product",
   "isBusinessCaseData" : false,
   "fields" : [ {
-    "name" : "data",
-    "type" : "shop.Data",
-    "modifiers" : [ "PERSISTENT" ]
-  }, {
-    "name" : "product",
-    "type" : "List<shop.Products>",
+    "name" : "products",
+    "type" : "List<shop.Product>",
     "modifiers" : [ "PERSISTENT" ]
   }, {
     "name" : "items",
@@ -18,6 +14,10 @@
   }, {
     "name" : "basketTotal",
     "type" : "Double",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "person",
+    "type" : "shop.Person",
     "modifiers" : [ "PERSISTENT" ]
   } ]
 }

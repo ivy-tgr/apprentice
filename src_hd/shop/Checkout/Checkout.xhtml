@@ -19,38 +19,38 @@
   <p:panel rendered="#{checkoutBean.activeStep == 0}">
     <p:panelGrid columns="1">
       <p:outputLabel for="Firstname" value="Firstname" />
-      <p:inputText id="Firstname" value="#{data.data.person.firstname}"
+      <p:inputText id="Firstname" value="#{data.person.firstname}"
         required="true"></p:inputText>
 
       <p:outputLabel for="Lastname" value="Lastname" />
-      <p:inputText id="Lastname" value="#{data.data.person.lastname}"
+      <p:inputText id="Lastname" value="#{data.person.lastname}"
         required="true"></p:inputText>
 
       <p:outputLabel for="Email" value="Email" />
-      <p:inputText id="Email" value="#{data.data.person.email}"
+      <p:inputText id="Email" value="#{data.person.email}"
         required="true"></p:inputText>
 
       <p:outputLabel for="Phone" value="Phone" />
-      <p:inputText id="Phone" value="#{data.data.person.phone}"
+      <p:inputText id="Phone" value="#{data.person.phone}"
         required="true"></p:inputText>
 
       <p:outputLabel for="Street" value="Street" />
-      <p:inputText id="Street" value="#{data.data.person.street}"
+      <p:inputText id="Street" value="#{data.person.street}"
         required="true"></p:inputText>
 
       <p:outputLabel for="HouseNumber" value="House number" />
-      <p:inputText id="HouseNumber" value="#{data.data.person.houseNumber}"
+      <p:inputText id="HouseNumber" value="#{data.person.houseNumber}"
         required="true"></p:inputText>
 
       <p:outputLabel for="Zip" value="Zip Code" />
-      <p:inputText id="Zip" value="#{data.data.person.zip}" required="true"></p:inputText>
+      <p:inputText id="Zip" value="#{data.person.zip}" required="true"></p:inputText>
 
       <p:outputLabel for="Place" value="Place" />
-      <p:inputText id="Place" value="#{data.data.person.place}"
+      <p:inputText id="Place" value="#{data.person.place}"
         required="true"></p:inputText>
 
       <p:outputLabel for="City" value="City" />
-      <p:inputText id="City" value="#{data.data.person.city}"
+      <p:inputText id="City" value="#{data.person.city}"
         required="true"></p:inputText>
     </p:panelGrid>
 
@@ -75,39 +75,39 @@
         columnClasses="grid,grid,grid">
         <h:panelGrid columns="2" columnClasses="label, value">
           <h:outputText value="Firstname: " />
-          <h:outputText value="#{data.data.person.firstname}"
+          <h:outputText value="#{data.person.firstname}"
             styleClass="outputLabel" />
 
           <h:outputText value="Lastname: " />
-          <h:outputText value="#{data.data.person.lastname}"
+          <h:outputText value="#{data.person.lastname}"
             styleClass="outputLabel" />
 
           <h:outputText value="Age: " />
-          <h:outputText value="#{data.data.person.age}"
+          <h:outputText value="#{data.person.age}"
             styleClass="outputLabel" />
         </h:panelGrid>
 
         <h:panelGrid columns="2" columnClasses="label, value">
           <h:outputText value="Street: " />
-          <h:outputText value="#{data.data.person.street}"
+          <h:outputText value="#{data.person.street}"
             styleClass="outputLabel" />
 
           <h:outputText value="Zip Code: " />
-          <h:outputText value="#{data.data.person.zip}"
+          <h:outputText value="#{data.person.zip}"
             styleClass="outputLabel" />
 
           <h:outputText value="City: " />
-          <h:outputText value="#{data.data.person.city}"
+          <h:outputText value="#{data.person.city}"
             styleClass="outputLabel" />
         </h:panelGrid>
 
         <h:panelGrid columns="2" columnClasses="label, value">
           <h:outputText value="Email: " />
-          <h:outputText value="#{data.data.person.email}"
+          <h:outputText value="#{data.person.email}"
             styleClass="outputLabel" />
 
           <h:outputText value="Phone " />
-          <h:outputText value="#{data.data.person.phone}"
+          <h:outputText value="#{data.person.phone}"
             styleClass="outputLabel" />
 
           <h:outputText />

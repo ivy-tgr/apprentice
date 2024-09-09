@@ -3,9 +3,9 @@ package shop;
 import java.util.List;
 
 public class Basket {
-	public static List<CartItem> add(List<Products> products, List<CartItem> items, Integer idToAdd)
+	public static List<CartItem> add(List<Product> products, List<CartItem> items, Integer idToAdd)
 	{
-		Products product = products.stream()
+		Product product = products.stream()
 			.filter(prod -> prod.getId().equals(idToAdd))
 			.findFirst().get();
 		
@@ -20,7 +20,7 @@ public class Basket {
 		return items;
 	}
 
-	private static CartItem newItem(Products product, List<CartItem> items) {
+	private static CartItem newItem(Product product, List<CartItem> items) {
 		CartItem item = new CartItem();
 		item.setProduct(product);
 		item.setCount(0);

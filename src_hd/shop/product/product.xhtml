@@ -13,11 +13,11 @@
 
       <h:form id="form">
       
-      <h2> Welcome #{data.data.person.name}</h2>
+      <h2> Welcome #{data.person.name}</h2>
 
         <p:tabView id="shop">
           <p:tab title="Electronics" id="electronic">
-            <p:dataTable id="products" var="product" value="#{data.product}">
+            <p:dataTable id="products" var="product" value="#{data.products}">
               <p:column id="product">
                 <p:panelGrid id="prod" columns="4">
                   <h:panelGroup id="picture">

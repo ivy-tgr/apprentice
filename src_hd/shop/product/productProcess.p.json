@@ -8,23 +8,23 @@
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",
-      "name" : "start(Data)",
+      "name" : "start(Person,String)",
       "config" : {
         "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "data", "type" : "shop.Data", "desc" : "" }
+            { "name" : "person", "type" : "shop.Person", "desc" : "" }
           ],
           "map" : {
-            "out.data" : "param.data"
+            "out.person" : "param.person"
           }
         },
         "result" : {
           "params" : [
-            { "name" : "data", "type" : "shop.Data", "desc" : "" }
+            { "name" : "person", "type" : "shop.Person", "desc" : "" }
           ],
           "map" : {
-            "result.data" : "in.data"
+            "result.person" : "in.person"
           }
         },
         "guid" : "191BD722E3259C9F"
@@ -69,8 +69,8 @@
       "config" : {
         "output" : {
           "code" : [
-            "import shop.Products;",
-            "out.product = ivy.persistence.Shop.findAll(Products.class);"
+            "import shop.Product;",
+            "out.products = ivy.persistence.Shop.findAll(Product.class);"
           ]
         }
       },
@@ -93,7 +93,7 @@
           "map" : { },
           "code" : [
             "import shop.Basket;",
-            "out.items = Basket.add(out.product, out.items, param.productId);"
+            "out.items = Basket.add(out.products, out.items, param.productId);"
           ]
         },
         "guid" : "191D5D484FF41095"
