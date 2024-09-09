@@ -47,5 +47,9 @@
     "name" : "phone",
     "type" : "Number",
     "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "items",
+    "type" : "List<shop.CartItem>",
+    "modifiers" : [ "PERSISTENT" ]
   } ]
 }
