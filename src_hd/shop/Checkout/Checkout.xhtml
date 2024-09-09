@@ -1,0 +1,126 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+  xmlns:ic="http://ivyteam.ch/jsf/component"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
+<cc:interface componentType="IvyComponent">
+</cc:interface>
+<cc:implementation>
+  <p:steps id="checkoutSteps" activeIndex="#{checkoutBean.activeStep}"
+    widgetVar="stepWidget" styleClass="steps-wizard">
+    <p:menuitem value="Adresse" />
+    <p:menuitem value="Payment" />
+    <p:menuitem value="Confirmation" />
+  </p:steps>
+
+  <p:panel rendered="#{checkoutBean.activeStep == 0}">
+    <p:panelGrid columns="1">
+      <p:outputLabel for="Firstname" value="Firstname" />
+      <p:inputText id="Firstname" value="#{data.data.person.firstname}"
+        required="true"></p:inputText>
+
+      <p:outputLabel for="Lastname" value="Lastname" />
+      <p:inputText id="Lastname" value="#{data.data.person.lastname}"
+        required="true"></p:inputText>
+
+      <p:outputLabel for="Email" value="Email" />
+      <p:inputText id="Email" value="#{data.data.person.email}"
+        required="true"></p:inputText>
+
+      <p:outputLabel for="Phone" value="Phone" />
+      <p:inputText id="Phone" value="#{data.data.person.phone}"
+        required="true"></p:inputText>
+
+      <p:outputLabel for="Street" value="Street" />
+      <p:inputText id="Street" value="#{data.data.person.street}"
+        required="true"></p:inputText>
+
+      <p:outputLabel for="HouseNumber" value="House number" />
+      <p:inputText id="HouseNumber" value="#{data.data.person.houseNumber}"
+        required="true"></p:inputText>
+
+      <p:outputLabel for="Zip" value="Zip Code" />
+      <p:inputText id="Zip" value="#{data.data.person.zip}" required="true"></p:inputText>
+
+      <p:outputLabel for="Place" value="Place" />
+      <p:inputText id="Place" value="#{data.data.person.place}"
+        required="true"></p:inputText>
+
+      <p:outputLabel for="City" value="City" />
+      <p:inputText id="City" value="#{data.data.person.city}"
+        required="true"></p:inputText>
+    </p:panelGrid>
+
+    <h:outputText value="Step 1: Enter Address and Delivery Information" />
+    <p:commandButton value="Next"
+      actionListener="#{checkoutBean.onStepChange(1)}" update="@form" />
+  </p:panel>
+
+  <p:panel rendered="#{checkoutBean.activeStep == 1}">
+    <h:outputText value="Step 2: Payment Information" />
+    <p:commandButton value="Previous"
+      actionListener="#{checkoutBean.onStepChange(0)}" update="@form" />
+    <p:commandButton value="Next"
+      actionListener="#{checkoutBean.onStepChange(2)}" update="@form" />
+  </p:panel>
+
+  <p:panel rendered="#{checkoutBean.activeStep == 2}">
+    <h:outputText value="Step 3: Confirmation" />
+
+    <p:panel header="Confirmation">
+      <h:panelGrid id="confirmation" columns="3"
+        columnClasses="grid,grid,grid">
+        <h:panelGrid columns="2" columnClasses="label, value">
+          <h:outputText value="Firstname: " />
+          <h:outputText value="#{data.data.person.firstname}"
+            styleClass="outputLabel" />
+
+          <h:outputText value="Lastname: " />
+          <h:outputText value="#{data.data.person.lastname}"
+            styleClass="outputLabel" />
+
+          <h:outputText value="Age: " />
+          <h:outputText value="#{data.data.person.age}"
+            styleClass="outputLabel" />
+        </h:panelGrid>
+
+        <h:panelGrid columns="2" columnClasses="label, value">
+          <h:outputText value="Street: " />
+          <h:outputText value="#{data.data.person.street}"
+            styleClass="outputLabel" />
+
+          <h:outputText value="Zip Code: " />
+          <h:outputText value="#{data.data.person.zip}"
+            styleClass="outputLabel" />
+
+          <h:outputText value="City: " />
+          <h:outputText value="#{data.data.person.city}"
+            styleClass="outputLabel" />
+        </h:panelGrid>
+
+        <h:panelGrid columns="2" columnClasses="label, value">
+          <h:outputText value="Email: " />
+          <h:outputText value="#{data.data.person.email}"
+            styleClass="outputLabel" />
+
+          <h:outputText value="Phone " />
+          <h:outputText value="#{data.data.person.phone}"
+            styleClass="outputLabel" />
+
+          <h:outputText />
+          <h:outputText />
+        </h:panelGrid>
+      </h:panelGrid>
+    </p:panel>
+
+    <p:commandButton value="Previous"
+      actionListener="#{checkoutBean.onStepChange(1)}" update="@form" />
+    <p:commandButton value="Pay" actionListener="#{logic.close}" update="form" />
+  </p:panel>
+
+</cc:implementation>
+
+</html>

@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "toYoungData",
+  "namespace" : "shop.toYoung",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "data",
+    "type" : "shop.Data",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+  xmlns:ic="http://ivyteam.ch/jsf/component"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+  <ui:composition template="/layouts/frame-10.xhtml">
+    <ui:define name="title">product</ui:define>
+    <ui:define name="content">
+
+      <h:form id="form">
+      
+      <h2> Welcome #{data.data.person.name}</h2>
+
+        <p:tabView id="shop">
+          <p:tab title="Electronics" id="electronic">
+            <p:dataTable id="products" var="product" value="#{data.product}">
+              <p:column id="product">
+                <p:panelGrid id="prod" columns="4">
+                  <h:panelGroup id="picture">
+                    <img width="100px" src="#{product.picture}" />
+                    <p:rating readonly="true" value="#{product.rating}" />
+                  </h:panelGroup>
+                  <h:panelGroup id="name">
+                    <h3 class="product-name">#{product.name}</h3>
+                    <div class="product-description">#{product.description}</div>
+                  </h:panelGroup>
+                  <h:panelGroup id="price">
+                    <h:outputText value="#{product.price}"
+                      styleClass="product-price">
+                      <f:convertNumber currencySymbol="$" type="currency" />
+                    </h:outputText>
+                  </h:panelGroup>
+                  <h:panelGroup id="basket">
+                    <p:commandButton
+                      actionListener="#{logic.toBasket(product.id)}" update="form"
+                      icon="si si-shopping-cart-check" />
+                  </h:panelGroup>
+                </p:panelGrid>
+              </p:column>
+            </p:dataTable>
+            
+          </p:tab>
+          <p:tab title="Food">
+          </p:tab>
+          <p:tab title="Garden">
+          </p:tab>
+          
+          <p:tab title="Shopping Cart">
+            <p:dataTable var="item" value="#{data.items}">
+              <p:column headerText="Product">
+                <h:outputText value="#{item.product.name}" />
+              </p:column>
+
+              <p:column headerText="Count">
+                <h:outputText value="#{item.count}" />
+              </p:column>
+
+              <p:column headerText="UnitPrice">
+                <h:outputText value="#{item.product.price}" />
+              </p:column>
+
+              <p:column headerText="Price">
+                <h:outputText value="#{item.totalPrice}" />
+              </p:column>
+            </p:dataTable>
+
+          </p:tab>
+
+          <p:tab title="Checkout" id="checkout">
+            <ic:shop.Checkout id="checkoutView" />
+          </p:tab>
+
+        </p:tabView>
+      </h:form>
+
+    </ui:define>
+  </ui:composition>
+</h:body>
+
+</html>

@@ -1,0 +1,23 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "productData",
+  "namespace" : "shop.product",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "data",
+    "type" : "shop.Data",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "product",
+    "type" : "List<shop.Products>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "items",
+    "type" : "List<shop.CartItem>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "basketTotal",
+    "type" : "Double",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

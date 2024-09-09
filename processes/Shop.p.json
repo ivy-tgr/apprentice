@@ -1,0 +1,114 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
+  "id" : "191BD62528B2DEB0",
+  "config" : {
+    "data" : "shop.Data"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start",
+      "config" : {
+        "signature" : "start",
+        "task" : {
+          "name" : "Shop"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f2", "to" : "f3" }
+      ]
+    }, {
+      "id" : "f3",
+      "type" : "DialogCall",
+      "name" : "Login",
+      "config" : {
+        "dialog" : "shop.login:start(shop.Data)",
+        "call" : {
+          "map" : {
+            "param.data" : "in"
+          }
+        },
+        "output" : {
+          "map" : {
+            "out" : "result.data"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f4", "to" : "f5", "color" : "default" }
+      ]
+    }, {
+      "id" : "f5",
+      "type" : "Alternative",
+      "config" : {
+        "conditions" : {
+          "f6" : "in.person.age > 4",
+          "f8" : ""
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 360, "y" : 64 },
+        "labelOffset" : { "x" : 14, "y" : 34 }
+      },
+      "connect" : [
+        { "id" : "f8", "to" : "f7" },
+        { "id" : "f6", "to" : "f9", "color" : "default" }
+      ]
+    }, {
+      "id" : "f7",
+      "type" : "DialogCall",
+      "name" : "To Young",
+      "config" : {
+        "dialog" : "shop.toYoung:start(shop.Data)",
+        "call" : {
+          "map" : {
+            "param.data" : "in"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 360, "y" : 224 }
+      }
+    }, {
+      "id" : "f9",
+      "type" : "DialogCall",
+      "name" : "Products",
+      "config" : {
+        "dialog" : "shop.product:start(shop.Data)",
+        "call" : {
+          "map" : {
+            "param.data" : "in"
+          }
+        },
+        "output" : {
+          "map" : {
+            "out" : "result.data"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 536, "y" : 64 },
+        "description" : "Products"
+      },
+      "connect" : [
+        { "id" : "f10", "to" : "f1" }
+      ]
+    }, {
+      "id" : "f1",
+      "type" : "TaskEndPage",
+      "name" : "EndPage",
+      "config" : {
+        "page" : "view/endPage.xhtml"
+      },
+      "visual" : {
+        "at" : { "x" : 728, "y" : 64 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      }
+    } ]
+}
